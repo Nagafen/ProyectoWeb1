@@ -14,7 +14,7 @@
         <title>Buscar Estudiante
         </title></head><body>
             <div style="text-align: center;">
-                <form method="get" action="BEstu" name="Buscar">
+                <form method="get" action="BusquedaEstudiante" name="Buscar">
                     Buscar Estudiante<br>
                     <br>Por favor ingrese el ID del estudiante que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
