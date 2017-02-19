@@ -34,15 +34,15 @@
           <br>
         <table >
             <tr>
-               <td>Id</td>&nbsp; &nbsp; &nbsp;
-               <td>Nombre</td> &nbsp; &nbsp; &nbsp;
-               <td>Apellido</td>&nbsp; &nbsp; &nbsp;
+               <td>Id</td>
+               <td>Nombre</td> 
+               <td>Apellido</td>
                <td>Telefono</td> 
             </tr>
             <tr>
-               <td><%=id%></td>&nbsp; &nbsp; &nbsp;
-               <td><%=nombre%></td>&nbsp; &nbsp; &nbsp;
-               <td><%=apellido%></td>&nbsp; &nbsp; &nbsp;
+               <td><%=id%></td>
+               <td><%=nombre%></td>
+               <td><%=apellido%></td>
                <td><%=tel%></td> 
         </tr>
         </table>
