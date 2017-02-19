@@ -33,7 +33,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>estudiante</servlet-name>
-        <url-pattern>/IngresoEstu</url-pattern>
+        <url-pattern>/Ingreso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

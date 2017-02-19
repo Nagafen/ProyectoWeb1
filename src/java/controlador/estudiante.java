@@ -40,16 +40,8 @@ public class estudiante extends HttpServlet {
             int tel = Integer.valueOf(request.getParameter("TelefonoEstu"));
             
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet estudiante</title>");            
-            out.println("</head>");
-            out.println("<body>");
             out.println(new String(apellido2));
-            out.println("</body>");
-            out.println("</html>");
-            
+     
             Estudiantes estudiante = new Estudiantes(id, nombre2, apellido2, tel);
             estu.insertar(estudiante);
             estu.listarTodo();
