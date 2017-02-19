@@ -14,7 +14,7 @@
         <title>Buscar Estudiante
         </title></head><body>
             <div style="text-align: center;">
-                <form method="get" action="BusquedaEstudiante" name="Buscar">
+                <form method="get" action="Buscar" name="Buscar">
                     Buscar Estudiante<br>
                     <br>Por favor ingrese el ID del estudiante que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
@@ -30,20 +30,19 @@
                String nombre = est.nuevo1;
                String apellido = est.nuevo2;
                int tel = est.tel;
-               
         %>   
           <br>
         <table >
             <tr>
-               <td>Id</td>
-               <td>Nombre</td> 
-               <td>Apellido</td>
+               <td>Id</td>&nbsp; &nbsp; &nbsp;
+               <td>Nombre</td> &nbsp; &nbsp; &nbsp;
+               <td>Apellido</td>&nbsp; &nbsp; &nbsp;
                <td>Telefono</td> 
             </tr>
             <tr>
-               <td><%=id%></td>
-               <td><%=nombre%></td>
-               <td><%=apellido%></td>
+               <td><%=id%></td>&nbsp; &nbsp; &nbsp;
+               <td><%=nombre%></td>&nbsp; &nbsp; &nbsp;
+               <td><%=apellido%></td>&nbsp; &nbsp; &nbsp;
                <td><%=tel%></td> 
         </tr>
         </table>
