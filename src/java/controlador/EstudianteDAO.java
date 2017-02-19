@@ -85,17 +85,13 @@ public class EstudianteDAO {
         long posm = arbol.Buscar(identificacion);
         this.EstudianteDB.seek(posm);
         id = this.EstudianteDB.readInt();
-        System.out.println(id);
         for (int j = 0; j < 20; j++) {
             nuevo1 = nuevo1 + this.EstudianteDB.readChar();
         }
-        System.out.println(nuevo1);
         for (int k = 0; k < 20; k++) {
             nuevo2 = nuevo2 + this.EstudianteDB.readChar();
         }
-        System.out.println(nuevo2);
         tel = this.EstudianteDB.readInt();
-        System.out.println(tel);
         System.out.println("");
     }
 
