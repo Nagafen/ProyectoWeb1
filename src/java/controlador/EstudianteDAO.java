@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import Modelo.ArbolEstudiantes;
 
 /**
  *
@@ -17,13 +18,23 @@ import java.util.ArrayList;
  */
 public class EstudianteDAO {
     private RandomAccessFile EstudianteDB;
+    private ArbolEstudiantes arbol = new ArbolEstudiantes();
+    public int id;
+    public String nuevo1="";
+    public String nuevo2="";
+    public int tel;
+    
     public EstudianteDAO() throws FileNotFoundException {
         this.EstudianteDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\estudiante.txt", "rw");
     }
   
+   
     public boolean insertar(Estudiantes estudiante) throws IOException {
         long posicionMemoria = this.EstudianteDB.length();
         this.EstudianteDB.seek(posicionMemoria);
+
+        arbol.Ingresar(estudiante.getId(), posicionMemoria);
+        arbol.ListarArbol();
         
         this.EstudianteDB.writeInt(estudiante.getId());
         
@@ -32,14 +43,12 @@ public class EstudianteDAO {
             this.EstudianteDB.writeChar(letra);
         }
         this.EstudianteDB.seek(posicionMemoria + 44);
-        System.out.println(this.EstudianteDB.getFilePointer());
 
         for (int i = 0; i < estudiante.getApellido().length; i++) {
             char letra2 = estudiante.getApellido()[i];
             this.EstudianteDB.writeChar(letra2);
         }
         this.EstudianteDB.seek(posicionMemoria + 84);
-        System.out.println(this.EstudianteDB.getFilePointer());
 
         this.EstudianteDB.writeInt(estudiante.getTelefono());
 
@@ -72,19 +81,22 @@ public class EstudianteDAO {
     }
 
     public void ListarUnitario(int identificacion) throws IOException {
-        
-//        System.out.println(posm);
-//        this.profesorDB.seek(posm);
-        System.out.println(this.EstudianteDB.readInt());
-        for (int j = 0; j < 20; j++) {
-            System.out.print(this.EstudianteDB.readChar());
-        }
-        for (int k = 0; k < 20; k++) {
-            System.out.print(this.EstudianteDB.readChar());
-        }
-        System.out.println(this.EstudianteDB.readInt());
-        System.out.println("");
 
+        long posm = arbol.Buscar(identificacion);
+        this.EstudianteDB.seek(posm);
+        id = this.EstudianteDB.readInt();
+        System.out.println(id);
+        for (int j = 0; j < 20; j++) {
+            nuevo1 = nuevo1 + this.EstudianteDB.readChar();
+        }
+        System.out.println(nuevo1);
+        for (int k = 0; k < 20; k++) {
+            nuevo2 = nuevo2 + this.EstudianteDB.readChar();
+        }
+        System.out.println(nuevo2);
+        tel = this.EstudianteDB.readInt();
+        System.out.println(tel);
+        System.out.println("");
     }
 
     public void destructor() throws IOException {

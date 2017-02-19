@@ -33,14 +33,14 @@ public class ProfesorDAO {
             this.profesorDB.writeChar(letra);
         }
         this.profesorDB.seek(posicionMemoria + 44);
-        System.out.println(this.profesorDB.getFilePointer());
+//        System.out.println(this.profesorDB.getFilePointer());
 
         for (int i = 0; i < profesor.getApellido().length; i++) {
             char letra2 = profesor.getApellido()[i];
             this.profesorDB.writeChar(letra2);
         }
         this.profesorDB.seek(posicionMemoria + 84);
-        System.out.println(this.profesorDB.getFilePointer());
+//        System.out.println(this.profesorDB.getFilePointer());
 
         this.profesorDB.writeInt(profesor.getExt());
 

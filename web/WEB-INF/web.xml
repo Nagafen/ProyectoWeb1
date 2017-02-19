@@ -16,9 +16,10 @@
         <servlet-name>estudiante</servlet-name>
         <servlet-class>controlador.estudiante</servlet-class>
     </servlet>
-    
-    
-    
+    <servlet>
+        <servlet-name>BusquedaEstudiante</servlet-name>
+        <servlet-class>controlador.BusquedaEstudiante</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Ejemplo</servlet-name>
         <url-pattern>/Ingresodocentes</url-pattern>
@@ -34,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>estudiante</servlet-name>
         <url-pattern>/Ingreso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusquedaEstudiante</servlet-name>
+        <url-pattern>/Buscar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

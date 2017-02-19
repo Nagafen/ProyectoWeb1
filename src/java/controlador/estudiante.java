@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Modelo.Estudiantes;
+import Modelo.ArbolEstudiantes;
+import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +24,8 @@ import Modelo.Estudiantes;
 public class estudiante extends HttpServlet {
 
     EstudianteDAO estu;
+    ArbolEstudiantes arbol = new ArbolEstudiantes();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,22 +36,22 @@ public class estudiante extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, InterruptedException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             int id = Integer.valueOf(request.getParameter("IDEstu"));
             char[] nombre2 = request.getParameter("NombreEstu").toCharArray();
             char[] apellido2 = request.getParameter("ApellidoEstu").toCharArray();
             int tel = Integer.valueOf(request.getParameter("TelefonoEstu"));
-            
+
             /* TODO output your page here. You may use following sample code. */
-            out.println(new String(apellido2));
-     
-            Estudiantes estudiante = new Estudiantes(id, nombre2, apellido2, tel);
-            estu.insertar(estudiante);
-            estu.listarTodo();
-            estu.destructor();
+                Estudiantes estudiante = new Estudiantes(id, nombre2, apellido2, tel);
+                estu = new EstudianteDAO();
+                estu.insertar(estudiante);
+                estu.ListarUnitario(54);
+//              estu.listarTodo();
+                estu.destructor();
         }
     }
 
@@ -61,7 +67,11 @@ public class estudiante extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -75,7 +85,11 @@ public class estudiante extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
