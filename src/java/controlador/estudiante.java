@@ -39,9 +39,6 @@ public class estudiante extends HttpServlet {
             char[] apellido2 = request.getParameter("ApellidoEstu").toCharArray();
             int tel = Integer.valueOf(request.getParameter("TelefonoEstu"));
             
-            String error1 = "Ingreso Correcto de estuadiante";
-            response.sendError(52);
-            response.sendError(202, error1);
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
