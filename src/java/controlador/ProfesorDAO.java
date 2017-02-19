@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import Modelo.ArbolEstudiantes;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -18,6 +19,12 @@ import Modelo.Profesor;
 public class ProfesorDAO {
 
     private RandomAccessFile profesorDB;
+    private ArbolEstudiantes arbol = new ArbolEstudiantes();
+    public int id;
+    public String nuevo1="";
+    public String nuevo2="";
+    public int ext;
+    
     public ProfesorDAO() throws FileNotFoundException {
         this.profesorDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\profesor.txt", "rw");
     }
@@ -73,17 +80,17 @@ public class ProfesorDAO {
     }
 
     public void ListarUnitario(int identificacion) throws IOException {
-        
-//        System.out.println(posm);
-//        this.profesorDB.seek(posm);
-        System.out.println(this.profesorDB.readInt());
+   
+        long posm = arbol.Buscar(identificacion);
+        this.profesorDB.seek(posm);
+        id = this.profesorDB.readInt();
         for (int j = 0; j < 20; j++) {
-            System.out.print(this.profesorDB.readChar());
+            nuevo1 = nuevo1 + this.profesorDB.readChar();
         }
         for (int k = 0; k < 20; k++) {
-            System.out.print(this.profesorDB.readChar());
+            nuevo2 = nuevo2 + this.profesorDB.readChar();
         }
-        System.out.println(this.profesorDB.readInt());
+        ext = this.profesorDB.readInt();
         System.out.println("");
 
     }

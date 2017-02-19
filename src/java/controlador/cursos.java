@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import Modelo.ArbolEstudiantes;
+import Modelo.Cursos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,8 +18,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author crist
  */
-public class Principal extends HttpServlet {
+public class cursos extends HttpServlet {
 
+    CursosDao cur;
+    ArbolEstudiantes arbol = new ArbolEstudiantes();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,21 +35,18 @@ public class Principal extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-                  
-            String Boton = request.getParameter("Ingresar");
-            if(Boton.equalsIgnoreCase("Ingresar")){
-                response.sendRedirect("CreacionProfesores.html");
-            }
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Principal</title>");            
-            out.println("</head>");
-            out.println("<body>");
-//            out.println("<h1>Servlet Principal at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            int codigo = Integer.valueOf(request.getParameter("Codigo"));
+            char[] nombre2 = request.getParameter("NombreCurso").toCharArray();
+            int dur = Integer.valueOf(request.getParameter("Duracion"));
+            int idprof = Integer.valueOf(request.getParameter("idProf"));
+
+            /* TODO output your page here. You may use following sample code. */
+                Cursos curso = new Cursos(codigo, nombre2, dur, idprof);
+                cur = new CursosDao();
+                cur.insertar(curso);
+                cur.ListarUnitario(101);
+                cur.destructor();
         }
     }
 

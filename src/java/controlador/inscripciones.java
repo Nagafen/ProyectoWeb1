@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import Modelo.Inscribciones;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,10 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author crist
+ * @author USER
  */
-public class Busqueda extends HttpServlet {
+public class inscripciones extends HttpServlet {
 
+    InscribcionesDAO ins;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,16 +33,30 @@ public class Busqueda extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-      
             /* TODO output your page here. You may use following sample code. */
+            int IdEst=Integer.valueOf(request.getParameter("IdEst"));
+            int IdCurso=Integer.valueOf(request.getParameter("IdCurso"));
+            char [] Fecha_ins=request.getParameter("fecha_ins").toCharArray();
+            char[] Fecha_fin=request.getParameter("fecha_fin").toCharArray();
+            int Nota=Integer.valueOf(request.getParameter("Nota"));
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Busqueda</title>");            
+            out.println("<title>Servlet iscribciones</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<h1>Servlet iscribciones at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
+            Inscribciones inscr=new Inscribciones(IdEst, IdCurso, Fecha_ins, Fecha_fin, Nota);
+            System.out.println(inscr);
+            ins=new InscribcionesDAO();
+            ins.insertar(inscr);
+            ins.listarTodo();
+            ins.destructor();
+            
+            
         }
     }
 

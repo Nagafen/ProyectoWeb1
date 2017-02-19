@@ -32,13 +32,13 @@ public class InscribcionesDAO {
              char letra=Incribcion.getFecha_ins()[i];
              this.InscribcionseDB.writeChar(letra);
          }
-           this.InscribcionseDB.seek(posicionMemoria + 28);
+        this.InscribcionseDB.seek(posicionMemoria + 48);
         System.out.println(this.InscribcionseDB.getFilePointer());
          for (int i = 0; i < Incribcion.getFecha_fin().length; i++) {
              char letra =Incribcion.getFecha_fin()[i];
              this.InscribcionseDB.writeChar(letra);
          }
-           this.InscribcionseDB.seek(posicionMemoria + 48);
+        this.InscribcionseDB.seek(posicionMemoria + 88);
         System.out.println(this.InscribcionseDB.getFilePointer());
         
         this.InscribcionseDB.writeInt(Incribcion.getNota());
@@ -53,7 +53,8 @@ public class InscribcionesDAO {
         return false;
     }
        public void ListarUnitario(int identificacion) throws IOException {
-         System.out.println(this.InscribcionseDB.readInt());
+        
+        System.out.println(this.InscribcionseDB.readInt());
         for (int j = 0; j < 20; j++) {
             System.out.print(this.InscribcionseDB.readChar());
         }
@@ -66,7 +67,7 @@ public class InscribcionesDAO {
 
     }
         public ArrayList<Inscribciones> listarTodo() throws IOException {
-        for (long i = 0; i < this.InscribcionseDB.length(); i = i + 52) {
+        for (long i = 0; i < this.InscribcionseDB.length(); i = i + 92) {
             this.InscribcionseDB.seek(i);
             System.out.println(this.InscribcionseDB.readInt());
             for (int j = 0; j < 20; j++) {
