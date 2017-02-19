@@ -54,7 +54,7 @@ public class iscribciones extends HttpServlet {
             ins=new InscribcionesDAO();
             ins.insertar(inscr);
             ins.listarTodo();
-            ins.destructor();;
+            ins.destructor();
             
             
         }
