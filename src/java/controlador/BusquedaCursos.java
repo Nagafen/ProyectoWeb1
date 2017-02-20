@@ -5,21 +5,20 @@
  */
 package controlador;
 
+import Modelo.Cursos;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Modelo.Profesor;
 
 /**
  *
- * @author Labing
+ * @author crist
  */
-public class profesores extends HttpServlet {
-
-    ProfesorDAO prodao;
+public class BusquedaCursos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,18 +33,14 @@ public class profesores extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            int id = Integer.valueOf(request.getParameter("id"));
-            char[] nombre2 = request.getParameter("nombre").toCharArray();
-            char[] apellido2 = request.getParameter("apellido").toCharArray();
-            int extencion = Integer.valueOf(request.getParameter("extencion"));
+            /* TODO output your page here. You may use following sample code. */         
+            String codigo = request.getParameter("codigo");
+            Cursos curs = new Cursos(Integer.parseInt(codigo),null,0, 0);
             
+            RequestDispatcher dispacher =request.getRequestDispatcher("BusquedaCursos.jsp");
             
-            /* TODO output your page here. You may use following sample code. */
-            Profesor pro = new Profesor(id, nombre2, apellido2, extencion);
-            prodao = new ProfesorDAO();
-            prodao.insertar(pro);
-            prodao.destructor();
+            request.setAttribute("curso", curs);
+            dispacher.forward(request, response);
         }
     }
 

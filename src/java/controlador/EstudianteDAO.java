@@ -34,7 +34,6 @@ public class EstudianteDAO {
         this.EstudianteDB.seek(posicionMemoria);
 
         arbol.Ingresar(estudiante.getId(), posicionMemoria);
-        arbol.ListarArbol();
         this.EstudianteDB.writeInt(estudiante.getId());
         
         for (int i = 0; i < estudiante.getNombre().length; i++) {

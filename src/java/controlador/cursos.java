@@ -5,8 +5,9 @@
  */
 package controlador;
 
-import Modelo.ArbolEstudiantes;
+import Modelo.ArbolProfesores;
 import Modelo.Cursos;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class cursos extends HttpServlet {
 
     CursosDao cur;
-    ArbolEstudiantes arbol = new ArbolEstudiantes();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,7 +48,7 @@ public class cursos extends HttpServlet {
                 cur.insertar(curso);
                 cur.ListarUnitario(101);
                 cur.destructor();
-        }
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

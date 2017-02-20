@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import Modelo.ArbolEstudiantes;
+import Modelo.ArbolProfesores;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -19,7 +19,7 @@ import Modelo.Profesor;
 public class ProfesorDAO {
 
     private RandomAccessFile profesorDB;
-    private ArbolEstudiantes arbol = new ArbolEstudiantes();
+    private ArbolProfesores arbol = new ArbolProfesores();
     public int id;
     public String nuevo1="";
     public String nuevo2="";
@@ -32,7 +32,8 @@ public class ProfesorDAO {
     public boolean insertar(Profesor profesor) throws IOException {
         long posicionMemoria = this.profesorDB.length();
         this.profesorDB.seek(posicionMemoria);
-        
+        arbol.Ingresar(profesor.getId(), posicionMemoria);
+        arbol.ListarArbol();
         this.profesorDB.writeInt(profesor.getId());
         
         for (int i = 0; i < profesor.getNombre().length; i++) {
@@ -98,5 +99,4 @@ public class ProfesorDAO {
     public void destructor() throws IOException {
         this.profesorDB.close();
     }
-
 }

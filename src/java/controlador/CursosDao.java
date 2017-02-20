@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import Modelo.ArbolEstudiantes;
+import Modelo.ArbolCursos;
 import Modelo.Cursos;
 import Modelo.Estudiantes;
 import java.io.FileNotFoundException;
@@ -19,8 +19,8 @@ import java.util.ArrayList;
  */
 public class CursosDao {
     private RandomAccessFile CursosDataBase;
-    private ArbolEstudiantes arbol = new ArbolEstudiantes();
-    public int id;
+    private ArbolCursos arbol = new ArbolCursos();
+    public int codigo;
     public String nuevo1="";
     public int dur;
     public int idProf;
@@ -78,8 +78,8 @@ public class CursosDao {
         
         long posm = arbol.Buscar(identificacion);
         this.CursosDataBase.seek(posm);
-        id = this.CursosDataBase.readInt();
-        System.out.println(id);
+        codigo = this.CursosDataBase.readInt();
+        System.out.println(codigo);
         for (int j = 0; j < 20; j++) {
             nuevo1 = nuevo1 + this.CursosDataBase.readChar();
            

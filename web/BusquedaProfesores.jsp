@@ -6,17 +6,15 @@
 
 <%@page import="controlador.ProfesorDAO"%>
 <%@page import="Modelo.Profesor"%>
-<%@page import="Modelo.Estudiantes"%>
-<%@page import="controlador.EstudianteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-        <title>Buscar Estudiante
+        <title>Busqueda Profesor
         </title></head><body>
             <div style="text-align: center;">
-                <form method="get" action="Buscar" name="Buscar">
+                <form method="get" action="BuscarProfesor" name="BuscarProfesor">
                     Buscar Profesor<br>
                     <br>Por favor ingrese el ID del profesor que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>

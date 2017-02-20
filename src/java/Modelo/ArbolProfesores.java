@@ -5,42 +5,36 @@
  */
 package Modelo;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
-import static javafx.scene.input.KeyCode.K;
-import static javafx.scene.input.KeyCode.V;
 
 /**
  *
  * @author crist
  */
-public class ArbolEstudiantes {
-
-    public static TreeMap<Integer, Long> arbol = new TreeMap<>();
+public class ArbolProfesores {
+    public static TreeMap<Integer, Long> arbol0 = new TreeMap<>();
 
     public void Ingresar(int numero, long posicion) {
-        arbol.put(numero, posicion);
+        arbol0.put(numero, posicion);
     }
 
     public void ListarArbol() {
-        arbol.entrySet().stream().map((ent) -> ent.getValue()).forEachOrdered((p) -> {
+        arbol0.entrySet().stream().map((ent) -> ent.getValue()).forEachOrdered((p) -> {
             System.out.println(p);
         });
     }
 
     public long Buscar(int id) {
         long valor = 0;
-        if (arbol.containsKey(id) == true) {
-            valor = arbol.get(id);
+        if (arbol0.containsKey(id) == true) {
+            valor = arbol0.get(id);
         }
         return valor;
     }
 
     public boolean Existencia(int id) {
         boolean respues;
-        respues = arbol.containsKey(id) == true;
+        respues = arbol0.containsKey(id) == true;
         return respues;
     }
 }

@@ -16,6 +16,10 @@
         <servlet-name>BusquedaEstudiante</servlet-name>
         <servlet-class>controlador.BusquedaEstudiante</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>BusquedaProfesores</servlet-name>
+        <servlet-class>controlador.BusquedaProfesores</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>inscripciones</servlet-name>
         <servlet-class>controlador.inscripciones</servlet-class>
@@ -38,7 +42,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BusquedaEstudiante</servlet-name>
-        <url-pattern>/Buscar</url-pattern>
+        <url-pattern>/BuscarAlumno</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BusquedaProfesores</servlet-name>
+        <url-pattern>/BuscarProfesor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>inscripciones</servlet-name>
