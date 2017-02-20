@@ -26,7 +26,7 @@ public class ProfesorDAO {
     public int ext;
     
     public ProfesorDAO() throws FileNotFoundException {
-        this.profesorDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\profesor.txt", "rw");
+        this.profesorDB = new RandomAccessFile("profesor.txt", "rw");
     }
   
     public boolean insertar(Profesor profesor) throws IOException {

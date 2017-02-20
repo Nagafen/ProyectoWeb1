@@ -25,7 +25,7 @@ public class EstudianteDAO {
     public int tel;
     
     public EstudianteDAO() throws FileNotFoundException {
-        this.EstudianteDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\estudiante.txt", "rw");
+        this.EstudianteDB = new RandomAccessFile("estudiante.txt", "rw");
     }
   
    
