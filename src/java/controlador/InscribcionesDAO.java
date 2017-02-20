@@ -19,6 +19,15 @@ import java.util.ArrayList;
 public class InscribcionesDAO {
     
     private RandomAccessFile InscribcionseDB;
+    private Inscribciones in;
+    private ArrayList<Inscribciones> ain = new ArrayList<>();
+    
+    public int idEst;
+    public int idCur;
+    public String fei = "";
+    public String fef = "";
+    public int nota;
+    
     public InscribcionesDAO() throws FileNotFoundException {
         this.InscribcionseDB = new RandomAccessFile("Inscribciones.txt", "rw");
     }
@@ -52,34 +61,22 @@ public class InscribcionesDAO {
     public boolean borrar(Inscribciones Incribcion) {
         return false;
     }
-       public void ListarUnitario(int identificacion) throws IOException {
-        
-        System.out.println(this.InscribcionseDB.readInt());
-        for (int j = 0; j < 20; j++) {
-            System.out.print(this.InscribcionseDB.readChar());
-        }
-        for (int k = 0; k < 20; k++) {
-            System.out.print(this.InscribcionseDB.readChar());
-        }
-        System.out.println(this.InscribcionseDB.readInt());
-        System.out.println("");
-       
-
-    }
         public ArrayList<Inscribciones> listarTodo() throws IOException {
         for (long i = 0; i < this.InscribcionseDB.length(); i = i + 92) {
             this.InscribcionseDB.seek(i);
-            System.out.println(this.InscribcionseDB.readInt());
+            idEst = this.InscribcionseDB.readInt();
+            idCur = this.InscribcionseDB.readInt();
             for (int j = 0; j < 20; j++) {
-                System.out.print(this.InscribcionseDB.readChar());
+                fei = fei + this.InscribcionseDB.readChar();
             }
             for (int k = 0; k < 20; k++) {
-                System.out.print(this.InscribcionseDB.readChar());
+                fef = fef + this.InscribcionseDB.readChar();
             }
-            System.out.println(this.InscribcionseDB.readInt());
-            System.out.println("");
+            nota = this.InscribcionseDB.readInt();
+            in = new Inscribciones(idEst, idCur, fei.toCharArray(),fei.toCharArray(), nota);
+            ain.add(in);
         }
-        return null;
+        return ain;
     }
        public void destructor() throws IOException {
         this.InscribcionseDB.close();

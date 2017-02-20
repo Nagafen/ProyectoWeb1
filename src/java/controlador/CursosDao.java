@@ -60,7 +60,7 @@ public class CursosDao {
         return false;
     }
 
-    public ArrayList<Estudiantes> listarTodo() throws IOException {
+    public ArrayList<Cursos> listarTodo() throws IOException {
         for (long i = 0; i < this.CursosDataBase.length(); i = i + 52) {
             this.CursosDataBase.seek(i);
             System.out.println(this.CursosDataBase.readInt());

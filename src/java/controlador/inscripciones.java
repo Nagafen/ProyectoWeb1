@@ -39,15 +39,6 @@ public class inscripciones extends HttpServlet {
             char [] Fecha_ins=request.getParameter("fecha_ins").toCharArray();
             char[] Fecha_fin=request.getParameter("fecha_fin").toCharArray();
             int Nota=Integer.valueOf(request.getParameter("Nota"));
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet iscribciones</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet iscribciones at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
             
             Inscribciones inscr=new Inscribciones(IdEst, IdCurso, Fecha_ins, Fecha_fin, Nota);
             System.out.println(inscr);

@@ -15,7 +15,7 @@
         <title>Buscar Curso
         </title></head><body>
             <div style="text-align: center;">
-                <form method="get" action="BuscarAlumno" name="BuscarAlumno">
+                    <form method="get" action="BuscarCurso" name="BuscarCurso">
                     Buscar Curso<br>
                     <br>Por favor ingrese el Codigo del curso que desea encontrar:<br>
                      ID: <input name="codigo" type="text"><br>
@@ -35,10 +35,10 @@
           <br>
         <table >
             <tr>
-               <td>Id</td>
+               <td>Codigo</td>
                <td>Nombre</td> 
-               <td>Apellido</td>
-               <td>Telefono</td> 
+               <td>Duracion</td>
+               <td>Id del Profesor</td> 
             </tr>
             <tr>
                <td><%=id%></td>
